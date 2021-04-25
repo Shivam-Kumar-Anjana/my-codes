@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <style>
+            body {
+    background-color: #fff;
+    color: #212529;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.jumbotron {
+    background-color: #477bff;
+    color: #fff;
+    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.section {
+    padding: 0.5rem 2rem 1rem 2rem;
+}
+
+.section:hover {
+    background-color: #f5f5f5;
+    transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+}
+
+button, input[type="submit"] {
+    background-color: #d9edff;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0.375rem 0.75rem;
+    text-align: center;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    vertical-align: middle;
+}
+
+
+input[type="text"] {
+    line-height: 1.8;
+    width: 25%;
+}
+
+input[type="text"]:hover {
+    background-color: #f5f5f5;
+    transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+        </style>
+        <title>Trivia!</title>
+
+        <script>
+        //function WrongAnswer()
+                function WrongAnswer(btn)
+                {
+                    btn.style.backgroundColor = "red";
+                    document.addEventListener("click", myAnswer);
+                    function myAnswer()
+                    {
+                        document.getElementById("demo").innerHTML = "Wrong Answer";
+                    }
+                }
+
+
+                function CorrectAnswer(btn)
+                {
+                    btn.style.backgroundColor = "green";
+                    document.addEventListener("click", mFunction);
+                    function mFunction()
+                    {
+                        document.getElementById("demo").innerHTML = "Correct Answer";
+                    }
+                }
+
+                function WrongAnswer2(btn)
+                {
+                    var c = document.getElementById("t_text").value;
+
+                    function myAnswercorrect()
+                        {
+                        document.getElementById("demo2").innerHTML = "Correct Answer";
+                        }
+
+                    function myAnswerwrong()
+                        {
+                        document.getElementById("demo2").innerHTML = "Wrong Answer";
+                        }
+
+                    if(c == "India")
+                    {
+                        btn.style.backgroundColor = "green";
+                        document.addEventListener("click", myAnswercorrect);
+                    }
+                    else
+                    {
+                        btn.style.backgroundColor = "red";
+                        document.addEventListener("click", myAnswerwrong);
+                    }
+                }
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                    <h3>What is the approximate ratio of people to sheep in New Zealand?</h3>
+                        <button type = "button" onclick = "WrongAnswer(this)" >6 person per 5 sheep</button>
+                        <button type = "button" onclick = "WrongAnswer(this)">3 person per 1 sheep</button>
+                        <button type = "button" onclick = "WrongAnswer(this)">7 person per 3 sheep</button>
+                        <button type = "button" onclick = "CorrectAnswer(this)">5 person per 3sheep</button>
+                        <button type = "button" onclick = "WrongAnswer(this)">2 person per 1sheep</button>
+
+                    <p id="demo"></p>
+
+
+
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>In which country is it illegal to own only one guinea pig, as a lone pig might get lonely? </h3>
+                <input id = "t_text" type = "text"/>
+                <button type = "button" onclick ="WrongAnswer2(this)" >Check Answer</button>
+                <p id="demo2"></p>
+
+            </div>
+
+        </div>
+    </body>
+</html>
